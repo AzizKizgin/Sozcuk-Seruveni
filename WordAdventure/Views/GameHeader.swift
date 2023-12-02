@@ -14,11 +14,13 @@ struct GameHeader: View {
     let isFocused: Bool
     let onFinish: () -> Void
     var body: some View {
-        let layout = isFocused ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
+        let condition = isFocused && UIDevice.current.userInterfaceIdiom == .phone
+        let circleSize = UIDevice.current.userInterfaceIdiom == .phone ? letterSize : 120
+        let layout = condition ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
         layout{
             Text(letter == "i" ? "İ" : letter.uppercased())
-                .font(.system(size: isFocused ? 25 : 55))
-                .frame(width: letterSize,height: letterSize)
+                .font(.system(size: condition ? 25 : 55))
+                .frame(width: circleSize,height: circleSize)
                 .scaledToFit()
                 .background(
                     ZStack {
@@ -30,10 +32,10 @@ struct GameHeader: View {
                 )
                 .foregroundColor(answerState == .none ? .accent : .white)
                 TimerView(onFinish: onFinish)
-                    .font(isFocused ? .title: .largeTitle)
+                    .font(condition ? .title: .largeTitle)
         }
         .frame(maxWidth: .infinity)
-        .animation(.default,value: isFocused)
+        .animation(.default,value: condition)
     }
 }
 
