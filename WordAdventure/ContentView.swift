@@ -8,14 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
+    @AppStorage("lastUpdate") var lastUpdate: String = ""
+    @State var showSplash: Bool = true
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack{
+            if showSplash{
+                SplashView()
+            }
+            else{
+                HomeView()
+            }
         }
-        .padding()
+        .onAppear{
+            Utils.getLastUpdateDate{ (date, error) in
+                if let date = date{
+                    if lastUpdate != date {
+                        Utils.getAllWords{ (words, error) in
+                            if let words{
+                                words.forEach{word in
+                                    modelContext.insert(word)
+                                }
+                                lastUpdate = date
+                            }
+                        }
+                    }
+                }
+                else{
+                    print("error")
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+                withAnimation{
+                    showSplash.toggle()
+                }
+            }
+        }
     }
 }
 
