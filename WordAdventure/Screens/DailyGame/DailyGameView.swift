@@ -15,6 +15,7 @@ struct DailyGameView: View {
     var body: some View {
         VStack{
             Text(dailyGameViewModel.currentQuestion?.meaning ?? "")
+                .font(UIDevice.current.userInterfaceIdiom == .phone ? .title2: .title)
                 .frame(height: 250)
             HStack{
                 TextField("Cevap", text: $dailyGameViewModel.answer)
@@ -60,11 +61,12 @@ struct DailyGameView: View {
             }
         }
         .onAppear{
-            dailyGameViewModel.getQuestions{ error in
-                if error != nil{
-                    dailyGameViewModel.showNoQuestionAlert.toggle()
-                }
-            }
+//            dailyGameViewModel.getQuestions{ error in
+//                if error != nil{
+//                    dailyGameViewModel.showNoQuestionAlert.toggle()
+//                }
+//            }
+            dailyGameViewModel.questions = fakeData
         }
         .alert("Sorular yüklenemedi", isPresented: $dailyGameViewModel.showNoQuestionAlert){
             Button("Tamam", role: .cancel) {
