@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct LetterCircle: View {
+struct GameHeader: View {
     let letter: String
     let letterSize: CGFloat
     let answerState: AnswerState
     let isFocused: Bool
     let onFinish: () -> Void
     var body: some View {
-        HStack{
+        let layout = isFocused ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
+        layout{
             Text(letter == "i" ? "İ" : letter.uppercased())
-                .font(.system(size: letterSize == 120 ? 55 : 25))
+                .font(.system(size: isFocused ? 25 : 55))
                 .frame(width: letterSize,height: letterSize)
                 .scaledToFit()
                 .background(
@@ -28,16 +29,15 @@ struct LetterCircle: View {
                     }
                 )
                 .foregroundColor(answerState == .none ? .accent : .white)
-        
-            if isFocused{
                 TimerView(onFinish: onFinish)
-                    .font(.title)
-            }
+                    .font(isFocused ? .title: .largeTitle)
         }
+        .frame(maxWidth: .infinity)
+        .animation(.default,value: isFocused)
     }
 }
 
-extension LetterCircle{
+extension GameHeader{
     func getCircleColor() -> Color{
         switch answerState{
         case .isCorrect:
@@ -53,5 +53,5 @@ extension LetterCircle{
 }
 
 #Preview {
-    LetterCircle(letter: "i", letterSize: 100,answerState: .none,isFocused: false, onFinish: {})
+    GameHeader(letter: "i", letterSize: 100,answerState: .none,isFocused: false, onFinish: {})
 }
