@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E0239B9E2B1A987B0034EFE5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0239B9D2B1A987B0034EFE5 /* TimerView.swift */; };
+		E0472D972B1B8E7200762B15 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D962B1B8E7200762B15 /* FakeData.swift */; };
+		E0472D9C2B1B9E0500762B15 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */; };
 		E051F2292B18DA9F000462D6 /* ModelSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051F2282B18DA9F000462D6 /* ModelSchemaV1.swift */; };
 		E06B1ADC2B166BFF007F174B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06B1ADB2B166BFF007F174B /* HomeView.swift */; };
 		E08A7F4A2B1B84E300008157 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E08A7F492B1B84E300008157 /* FirebaseAuth */; };
@@ -31,6 +33,12 @@
 		E0AD04E82B1915E300F65098 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04E72B1915E300F65098 /* LetterView.swift */; };
 		E0AD04EA2B19161200F65098 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04E92B19161200F65098 /* View.swift */; };
 		E0AD04EC2B1933C800F65098 /* GameHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04EB2B1933C800F65098 /* GameHeader.swift */; };
+		E0E6C7E32B1BA92D00146C5F /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7E22B1BA92D00146C5F /* BottomBarView.swift */; };
+		E0E6C7E52B1BB19900146C5F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7E42B1BB19900146C5F /* ScoreView.swift */; };
+		E0E6C7EA2B1BBA2D00146C5F /* ScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7E92B1BBA2D00146C5F /* ScoreItem.swift */; };
+		E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7EB2B1BBAFB00146C5F /* NextGameTimer.swift */; };
+		E0E6C7EE2B1BC41F00146C5F /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7ED2B1BC41F00146C5F /* ShareButton.swift */; };
+		E0E6C7F12B1BC9E300146C5F /* AnswersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */; };
 		E0F913172B17A09B00BDE3F0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F913162B17A09A00BDE3F0 /* Question.swift */; };
 		E0F9131C2B17A3BD00BDE3F0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F9131B2B17A3BD00BDE3F0 /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		E0239B9D2B1A987B0034EFE5 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E0472D962B1B8E7200762B15 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
 		E051F2282B18DA9F000462D6 /* ModelSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSchemaV1.swift; sourceTree = "<group>"; };
 		E06B1ADB2B166BFF007F174B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E08BC49B2B16770200FAE34D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -77,6 +87,12 @@
 		E0AD04E72B1915E300F65098 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		E0AD04E92B19161200F65098 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E0AD04EB2B1933C800F65098 /* GameHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeader.swift; sourceTree = "<group>"; };
+		E0E6C7E22B1BA92D00146C5F /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		E0E6C7E42B1BB19900146C5F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		E0E6C7E92B1BBA2D00146C5F /* ScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreItem.swift; sourceTree = "<group>"; };
+		E0E6C7EB2B1BBAFB00146C5F /* NextGameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextGameTimer.swift; sourceTree = "<group>"; };
+		E0E6C7ED2B1BC41F00146C5F /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersView.swift; sourceTree = "<group>"; };
 		E0F913162B17A09A00BDE3F0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E0F9131B2B17A3BD00BDE3F0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +125,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0472D982B1B9D9300762B15 /* GameSummary */ = {
+			isa = PBXGroup;
+			children = (
+				E0E6C7EF2B1BC9CC00146C5F /* AnswersView */,
+				E0E6C7E82B1BBA0E00146C5F /* ScoreView */,
+				E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */,
+				E0E6C7E22B1BA92D00146C5F /* BottomBarView.swift */,
+			);
+			path = GameSummary;
+			sourceTree = "<group>";
+		};
 		E051F2272B18DA7A000462D6 /* ModelSchemas */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +176,7 @@
 			children = (
 				E08BC4A52B1687C500FAE34D /* Letters.swift */,
 				E0AD04E92B19161200F65098 /* View.swift */,
+				E0472D962B1B8E7200762B15 /* FakeData.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -235,6 +263,25 @@
 			path = DailyGame;
 			sourceTree = "<group>";
 		};
+		E0E6C7E82B1BBA0E00146C5F /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				E0E6C7E42B1BB19900146C5F /* ScoreView.swift */,
+				E0E6C7E92B1BBA2D00146C5F /* ScoreItem.swift */,
+				E0E6C7EB2B1BBAFB00146C5F /* NextGameTimer.swift */,
+				E0E6C7ED2B1BC41F00146C5F /* ShareButton.swift */,
+			);
+			path = ScoreView;
+			sourceTree = "<group>";
+		};
+		E0E6C7EF2B1BC9CC00146C5F /* AnswersView */ = {
+			isa = PBXGroup;
+			children = (
+				E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */,
+			);
+			path = AnswersView;
+			sourceTree = "<group>";
+		};
 		E0F913132B179BE100BDE3F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +301,7 @@
 		E0F9131D2B17BB7000BDE3F0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E0472D982B1B9D9300762B15 /* GameSummary */,
 				E0AD04E22B190C5100F65098 /* DailyGame */,
 				E0AD04DF2B19006300F65098 /* Splash */,
 				E06B1ADA2B166BD5007F174B /* Home */,
@@ -400,18 +448,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0472D972B1B8E7200762B15 /* FakeData.swift in Sources */,
 				E0AD04E82B1915E300F65098 /* LetterView.swift in Sources */,
 				E06B1ADC2B166BFF007F174B /* HomeView.swift in Sources */,
+				E0E6C7EE2B1BC41F00146C5F /* ShareButton.swift in Sources */,
+				E0E6C7E32B1BA92D00146C5F /* BottomBarView.swift in Sources */,
 				E0AD04EA2B19161200F65098 /* View.swift in Sources */,
 				E051F2292B18DA9F000462D6 /* ModelSchemaV1.swift in Sources */,
+				E0472D9C2B1B9E0500762B15 /* GameSummaryView.swift in Sources */,
 				E0F9131C2B17A3BD00BDE3F0 /* FirebaseManager.swift in Sources */,
 				E0AD04E62B190CA600F65098 /* DailyGameViewModel.swift in Sources */,
+				E0E6C7EA2B1BBA2D00146C5F /* ScoreItem.swift in Sources */,
 				E0F913172B17A09B00BDE3F0 /* Question.swift in Sources */,
 				E091B0172B122E1E00B78472 /* ContentView.swift in Sources */,
+				E0E6C7E52B1BB19900146C5F /* ScoreView.swift in Sources */,
 				E091B0152B122E1E00B78472 /* WordAdventureApp.swift in Sources */,
 				E08BC49F2B167E4200FAE34D /* HomeButton.swift in Sources */,
 				E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */,
+				E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */,
 				E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */,
+				E0E6C7F12B1BC9E300146C5F /* AnswersView.swift in Sources */,
 				E08BC4A62B1687C500FAE34D /* Letters.swift in Sources */,
 				E0AD04E42B190C6700F65098 /* DailyGameView.swift in Sources */,
 				E08BC49C2B16770200FAE34D /* Utils.swift in Sources */,
@@ -587,8 +643,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -617,8 +673,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
