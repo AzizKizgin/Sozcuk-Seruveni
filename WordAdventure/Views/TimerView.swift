@@ -8,42 +8,50 @@
 import SwiftUI
 
 struct TimerView: View {
-    @State private var elapsedTime: TimeInterval = 300
-    @State private var isRunning = false
-    private let timerInterval = 1.0
+    @StateObject var stopWatchManager = StopWatchManager()
     let onFinish: () -> Void
-
+    
     var body: some View {
         VStack {
-            Text(formatElapsedTime())
-                .font(.largeTitle)
+            Text(stopWatchManager.formatElapsedTime())
+                .foregroundStyle(.accent)
                 .padding()
                 .onAppear{
-                    startTimer()
+                    stopWatchManager.start()
                 }
-        }
-    }
-
-    private func startTimer() {
-        isRunning = true
-        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-            if self.elapsedTime > 0 {
-                self.elapsedTime -= 1
-            }
-            else{
-                onFinish()
+                .onChange(of: stopWatchManager.remainingTime){ oldValue, newValue in
+                    if newValue == 0 {
+                        stopWatchManager.stop()
+                    }
             }
         }
-    }
-
-    private func formatElapsedTime() -> String {
-        let minutes = Int(elapsedTime) / 60
-        let seconds = Int(elapsedTime) % 60
-
-        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
 
 #Preview {
     TimerView(onFinish: {})
+}
+
+class StopWatchManager: ObservableObject {
+    
+    @Published var remainingTime = 300
+    var timer = Timer()
+    
+    func start() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.remainingTime -= 1
+        }
+    }
+    
+    func stop() {
+        timer.invalidate()
+        remainingTime = 0
+    }
+    
+    func formatElapsedTime() -> String {
+        let minutes = Int(self.remainingTime) / 60
+        let seconds = Int(self.remainingTime) % 60
+
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
 }
