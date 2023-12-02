@@ -16,4 +16,5 @@ struct Question{
     let meaning: String
     let word: String
     var answerState: AnswerState = .none
+    var userAnswer: String = "-"
 }
