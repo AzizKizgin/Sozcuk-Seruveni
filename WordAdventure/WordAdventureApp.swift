@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-
 import FirebaseCore
-
+import SwiftData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -21,10 +20,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct WordAdventureApp: App {
+    let modelContainer : ModelContainer
+    
+    init() {
+        do{
+            modelContainer = try ModelContainer(for: Word.self, migrationPlan: nil)
+        }
+        catch{
+            fatalError("failed when initialize model container")
+        }
+    }
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(modelContainer)
         }
     }
 }

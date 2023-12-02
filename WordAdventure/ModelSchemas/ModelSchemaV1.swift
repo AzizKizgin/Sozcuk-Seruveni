@@ -6,3 +6,32 @@
 //
 
 import Foundation
+import SwiftData
+
+enum ModelSchemaV1: VersionedSchema{
+    static var versionIdentifier = Schema.Version(
+        1,
+        0,
+        0
+    )
+    
+    static var models: [any PersistentModel.Type]{
+        [
+            Word.self
+        ]
+    }
+
+    @Model
+    final class Word {
+        var letter: String
+        var meaning: String
+        @Attribute(.unique) var word: String
+        
+        init(letter: String, meaning: String, word: String) {
+            self.letter = letter
+            self.meaning = meaning
+            self.word = word
+        }
+    }
+
+}

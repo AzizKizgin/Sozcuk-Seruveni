@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+import Foundation
+import SwiftUI
+import SwiftData
+
+typealias Word = ModelSchemaV1.Word
