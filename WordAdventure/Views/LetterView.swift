@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct LetterView: View {
+    var letter: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(letter.uppercased())
+            .font(.system(size: 55))
+            .frame(width: 120, height: 120)
+            .letterCircleStyle()
+            .foregroundColor(.accent)
+            .padding(.horizontal, 8)
     }
 }
 
 #Preview {
-    LetterView()
+    LetterView(letter: "a")
 }
