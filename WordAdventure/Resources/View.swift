@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
+extension View {
+    func letterCircleStyle() -> some View {
+        self.background(
+            ZStack {
+                Circle().fill(.white)
+                Circle().strokeBorder(.accent, lineWidth: 1)
+            }
+        )
+    }
+}
