@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct GameSummaryView: View {
+    @State private var tabSelection = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $tabSelection){
+            Text("1")
+                .tag(0)
+            Text("2")
+                .tag(1)
+        }
+        .tabViewStyle(DefaultTabViewStyle())
+        .overlay(alignment: .bottom){
+            BottomBarView(tabSelection: $tabSelection)
+                .padding(.bottom,4)
+        }
     }
 }
 
 #Preview {
-    GameSummaryView()
+    NavigationStack{
+        GameSummaryView()
+    }
 }
