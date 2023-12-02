@@ -8,24 +8,38 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var showDaily: Bool = false
+    @State var showInfinity: Bool = false
     var body: some View {
-        VStack{
-            VStack(spacing:30){
-                HomeButton(title: "Günlük", onPress: {})
-                HomeButton(title: "Sınırsız", onPress: {},icon:"infinity.circle")
+        NavigationStack{
+            VStack{
+                VStack(spacing:30){
+                    HomeButton(title: "Günlük", onPress: {
+                        showDaily.toggle()
+                    })
+                    HomeButton(title: "Sınırsız", onPress: {
+                        showInfinity.toggle()
+                    },icon:"infinity.circle")
+                }
+            }
+            .frame(maxHeight: .infinity)
+            .overlay(alignment: .top){
+                Image("icon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120)
+                    .padding()
+                    .background(.accent)
+                    .clipShape(Circle())
+            }
+            .padding()
+            .navigationDestination(isPresented: $showDaily){
+                DailyGameView()
+            }
+            .navigationDestination(isPresented: $showInfinity){
+                
             }
         }
-        .frame(maxHeight: .infinity)
-        .overlay(alignment: .top){
-            Image("icon")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 120)
-                .padding()
-                .background(.accent)
-                .clipShape(Circle())
-        }
-        .padding()
     }
 }
 
