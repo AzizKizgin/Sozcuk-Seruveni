@@ -36,8 +36,10 @@ class DailyGameViewModel: ObservableObject{
                 questions[currentIndex].answerState = .isPassed
             } else if answer.lowercased() == questions[currentIndex].meaning.lowercased() {
                 questions[currentIndex].answerState = .isCorrect
+                questions[currentIndex].userAnswer = answer
             } else {
                 questions[currentIndex].answerState = .isWrong
+                questions[currentIndex].userAnswer = answer
             }
         }
         answer = ""
