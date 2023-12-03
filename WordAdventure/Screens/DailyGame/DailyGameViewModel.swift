@@ -17,24 +17,34 @@ class DailyGameViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var showNoQuestionAlert: Bool = false
     @Published var showCloseAlert: Bool = false
-    @Published var showFinishModal: Bool = false
+    @Published var remainingTime: String = ""
+    @Published var screen: GameScreenType = .info
     
     var currentLetter: String {
         allLetters[index]
     }
     
     var currentQuestion: Question? {
-        questions.first { $0.letter == allLetters[index].lowercased() }
+        questions.first { $0.letter == allLetters[index].lowercased(with: .init(identifier: "tr_TR")) }
+    }
+    
+    func closeInfoScreen(){
+        screen = .game
+    }
+    
+    func showResultScreen(time: String){
+        remainingTime = time
+        screen = .result
     }
     
     func checkAnswer() {
-        if let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].lowercased() }) {
+        if let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].lowercased(with: .init(identifier: "tr_TR")) }) {
             if answer.lowercased() == "bitir" {
-                showFinishModal.toggle()
+                screen = .result
             }
             else if answer == "" {
                 questions[currentIndex].answerState = .isPassed
-            } else if answer.lowercased() == questions[currentIndex].meaning.lowercased() {
+            } else if answer.lowercased(with: .init(identifier: "tr_TR")) == questions[currentIndex].word.lowercased(with: .init(identifier: "tr_TR")) {
                 questions[currentIndex].answerState = .isCorrect
                 questions[currentIndex].userAnswer = answer
             } else {
@@ -49,14 +59,14 @@ class DailyGameViewModel: ObservableObject{
     func getNextQuestion() {
         while !allLetters.isEmpty {
             index = (index + 1) % allLetters.count
-            let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].lowercased() })
+            let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].lowercased(with: .init(identifier: "tr_TR")) })
 
             if let currentIndex = currentIndex,
                questions[currentIndex].answerState == .none || questions[currentIndex].answerState == .isPassed {
                 return
             }
         }
-        showFinishModal.toggle()
+        screen = .result
     }
     
     func getQuestions(completion: @escaping (Error?) -> Void) {
