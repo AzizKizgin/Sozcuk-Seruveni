@@ -8,22 +8,43 @@
 import SwiftUI
 
 struct NextGameTimer: View {
-    @State private var currentTime = Date()
+    @StateObject var nextGameTimerManager = NextGameTimerManager()
 
     var body: some View {
         HStack {
             Text("Sonraki Oyun:")
                 .font(.title2)
-            Text(timeUntilMidnight())
+            Text(nextGameTimerManager.timeUntilMidnight())
                 .font(.title)
         }
         .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                currentTime = Date()
-            }
+            nextGameTimerManager.start()
+        }
+        .onDisappear{
+            nextGameTimerManager.stop()
         }
     }
 
+
+}
+#Preview {
+    NextGameTimer()
+}
+
+class NextGameTimerManager: ObservableObject {
+    @Published private var currentTime = Date()
+    var timer = Timer()
+    
+    func start(){
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.currentTime = Date()
+        }
+    }
+    
+    func stop(){
+        timer.invalidate()
+    }
+    
     func timeUntilMidnight() -> String {
         let calendar = Calendar.current
         let midnight = calendar.startOfDay(for: Date()).addingTimeInterval(24 * 60 * 60)
@@ -31,7 +52,4 @@ struct NextGameTimer: View {
         let formattedTime = String(format: "%02d:%02d:%02d", remainingTime.hour ?? 0, remainingTime.minute ?? 0, remainingTime.second ?? 0)
         return formattedTime
     }
-}
-#Preview {
-    NextGameTimer()
 }
