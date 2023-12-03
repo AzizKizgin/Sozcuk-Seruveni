@@ -13,7 +13,7 @@ struct AnswersView: View {
     var body: some View {
         ScrollView{
             ForEach(letters, id: \.self){ letter in
-                let item = fakeDataWithAnswer.first(where: {
+                let item = questions.first(where: {
                     $0.letter == letter
                 }) ?? Question(
                     letter: "",
@@ -26,7 +26,7 @@ struct AnswersView: View {
                             getIcon(answerState: item.answerState)
                             Text(item.word)
                             Spacer()
-                            Text(item.letter == "i" ? "İ": item.letter.uppercased())
+                            Text(item.letter.uppercased(with: .init(identifier: "tr_TR")))
                             Image(systemName: "chevron.down")
                         }
                         .fontWeight(.bold)
@@ -113,5 +113,7 @@ extension AnswersView{
 }
 
 #Preview {
-    AnswersView(questions: fakeDataWithAnswer)
+    NavigationStack{
+        AnswersView(questions: fakeDataWithAnswer)
+    }
 }
