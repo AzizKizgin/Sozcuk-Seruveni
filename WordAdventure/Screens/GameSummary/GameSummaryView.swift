@@ -9,11 +9,18 @@ import SwiftUI
 
 struct GameSummaryView: View {
     @State private var tabSelection = 0
+    let questions: [Question]
+    let remainingTime: String
     var body: some View {
         TabView(selection: $tabSelection){
-            Text("1")
+            ScoreView(
+                correctCount: getQuestionsStats().correctCount,
+                wrongCount: getQuestionsStats().wrongCount,
+                passCount: getQuestionsStats().passCount,
+                remainingTime: remainingTime
+            )
                 .tag(0)
-            Text("2")
+            AnswersView(questions: questions)
                 .tag(1)
         }
         .tabViewStyle(DefaultTabViewStyle())
@@ -24,8 +31,36 @@ struct GameSummaryView: View {
     }
 }
 
+struct GetQuestionsStatsType{
+    let correctCount:Int
+    let wrongCount:Int
+    let passCount:Int
+}
+extension GameSummaryView{
+    func getQuestionsStats() -> GetQuestionsStatsType{
+        var correctCount = 0
+        var wrongCount = 0
+        var passCount = 0
+        
+        questions.forEach({
+            switch $0.answerState {
+            case .isCorrect:
+                correctCount += 1
+            case .isWrong:
+                wrongCount += 1
+            case .isPassed:
+                passCount += 1
+            case .none:
+                passCount += 1
+            }
+        })
+        
+        return GetQuestionsStatsType(correctCount: correctCount, wrongCount: wrongCount, passCount: passCount)
+    }
+}
+
 #Preview {
     NavigationStack{
-        GameSummaryView()
+        GameSummaryView(questions: fakeDataWithAnswer, remainingTime: "02.00")
     }
 }
