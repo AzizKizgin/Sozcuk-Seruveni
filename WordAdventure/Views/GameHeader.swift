@@ -9,16 +9,15 @@ import SwiftUI
 
 struct GameHeader: View {
     let letter: String
-    let letterSize: CGFloat
     let answerState: AnswerState
+    let remainingTime: String
     let isFocused: Bool
-    let onFinish: () -> Void
     var body: some View {
         let condition = isFocused && UIDevice.current.userInterfaceIdiom == .phone
-        let circleSize = UIDevice.current.userInterfaceIdiom == .phone ? letterSize : 120
+        let circleSize: CGFloat = UIDevice.current.userInterfaceIdiom == .phone && isFocused ? 50 : 120
         let layout = condition ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
         layout{
-            Text(letter == "i" ? "İ" : letter.uppercased())
+            Text(letter.uppercased(with: .init(identifier: "tr_TR")))
                 .font(.system(size: condition ? 25 : 55))
                 .frame(width: circleSize,height: circleSize)
                 .scaledToFit()
@@ -31,7 +30,9 @@ struct GameHeader: View {
                     }
                 )
                 .foregroundColor(answerState == .none ? .accent : .white)
-                TimerView(onFinish: onFinish)
+                Text(remainingTime)
+                    .foregroundStyle(.accent)
+                    .padding()
                     .font(condition ? .title: .largeTitle)
         }
         .frame(maxWidth: .infinity)
@@ -55,5 +56,5 @@ extension GameHeader{
 }
 
 #Preview {
-    GameHeader(letter: "i", letterSize: 100,answerState: .none,isFocused: false, onFinish: {})
+    GameHeader(letter: "i", answerState: .none, remainingTime: "02.33",isFocused: false)
 }
