@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E0239B9E2B1A987B0034EFE5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0239B9D2B1A987B0034EFE5 /* TimerView.swift */; };
 		E0472D972B1B8E7200762B15 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D962B1B8E7200762B15 /* FakeData.swift */; };
 		E0472D9C2B1B9E0500762B15 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */; };
 		E051F2292B18DA9F000462D6 /* ModelSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051F2282B18DA9F000462D6 /* ModelSchemaV1.swift */; };
@@ -26,6 +25,7 @@
 		E091B0302B122E1F00B78472 /* WordAdventureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091B02F2B122E1F00B78472 /* WordAdventureUITests.swift */; };
 		E091B0322B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091B0312B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift */; };
 		E091B03F2B12321A00B78472 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E091B03E2B12321A00B78472 /* GoogleService-Info.plist */; };
+		E0A603B02B1CC152004AE6CC /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A603AF2B1CC152004AE6CC /* StopWatchManager.swift */; };
 		E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04DC2B18EBDD00F65098 /* SwiftData+Typealiases.swift */; };
 		E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04E02B19007C00F65098 /* SplashView.swift */; };
 		E0AD04E42B190C6700F65098 /* DailyGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04E32B190C6700F65098 /* DailyGameView.swift */; };
@@ -39,6 +39,8 @@
 		E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7EB2B1BBAFB00146C5F /* NextGameTimer.swift */; };
 		E0E6C7EE2B1BC41F00146C5F /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7ED2B1BC41F00146C5F /* ShareButton.swift */; };
 		E0E6C7F12B1BC9E300146C5F /* AnswersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */; };
+		E0E6C7F42B1BEF3C00146C5F /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F32B1BEF3C00146C5F /* GameInfo.swift */; };
+		E0E6C7F62B1C024E00146C5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F52B1C024E00146C5F /* Enums.swift */; };
 		E0F913172B17A09B00BDE3F0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F913162B17A09A00BDE3F0 /* Question.swift */; };
 		E0F9131C2B17A3BD00BDE3F0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F9131B2B17A3BD00BDE3F0 /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +63,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E0239B9D2B1A987B0034EFE5 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E0472D962B1B8E7200762B15 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
 		E051F2282B18DA9F000462D6 /* ModelSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSchemaV1.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		E091B02F2B122E1F00B78472 /* WordAdventureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAdventureUITests.swift; sourceTree = "<group>"; };
 		E091B0312B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAdventureUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E091B03E2B12321A00B78472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0A603AF2B1CC152004AE6CC /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
 		E0AD04DC2B18EBDD00F65098 /* SwiftData+Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftData+Typealiases.swift"; sourceTree = "<group>"; };
 		E0AD04E02B19007C00F65098 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E0AD04E32B190C6700F65098 /* DailyGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGameView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		E0E6C7EB2B1BBAFB00146C5F /* NextGameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextGameTimer.swift; sourceTree = "<group>"; };
 		E0E6C7ED2B1BC41F00146C5F /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersView.swift; sourceTree = "<group>"; };
+		E0E6C7F32B1BEF3C00146C5F /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		E0E6C7F52B1C024E00146C5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		E0F913162B17A09A00BDE3F0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E0F9131B2B17A3BD00BDE3F0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,7 +170,6 @@
 				E08BC49E2B167E4200FAE34D /* HomeButton.swift */,
 				E0AD04E72B1915E300F65098 /* LetterView.swift */,
 				E0AD04EB2B1933C800F65098 /* GameHeader.swift */,
-				E0239B9D2B1A987B0034EFE5 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				E08BC4A52B1687C500FAE34D /* Letters.swift */,
 				E0AD04E92B19161200F65098 /* View.swift */,
 				E0472D962B1B8E7200762B15 /* FakeData.swift */,
+				E0E6C7F52B1C024E00146C5F /* Enums.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,6 +208,7 @@
 		E091B0132B122E1E00B78472 /* WordAdventure */ = {
 			isa = PBXGroup;
 			children = (
+				E0A603AE2B1CC138004AE6CC /* ViewModels */,
 				E051F2272B18DA7A000462D6 /* ModelSchemas */,
 				E0F9131D2B17BB7000BDE3F0 /* Screens */,
 				E0F9131A2B17A3AB00BDE3F0 /* Firebase */,
@@ -246,6 +251,14 @@
 			path = WordAdventureUITests;
 			sourceTree = "<group>";
 		};
+		E0A603AE2B1CC138004AE6CC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E0A603AF2B1CC152004AE6CC /* StopWatchManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E0AD04DF2B19006300F65098 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +295,14 @@
 			path = AnswersView;
 			sourceTree = "<group>";
 		};
+		E0E6C7F22B1BEF2C00146C5F /* GameInfo */ = {
+			isa = PBXGroup;
+			children = (
+				E0E6C7F32B1BEF3C00146C5F /* GameInfo.swift */,
+			);
+			path = GameInfo;
+			sourceTree = "<group>";
+		};
 		E0F913132B179BE100BDE3F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +322,7 @@
 		E0F9131D2B17BB7000BDE3F0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E0E6C7F22B1BEF2C00146C5F /* GameInfo */,
 				E0472D982B1B9D9300762B15 /* GameSummary */,
 				E0AD04E22B190C5100F65098 /* DailyGame */,
 				E0AD04DF2B19006300F65098 /* Splash */,
@@ -464,6 +486,8 @@
 				E0E6C7E52B1BB19900146C5F /* ScoreView.swift in Sources */,
 				E091B0152B122E1E00B78472 /* WordAdventureApp.swift in Sources */,
 				E08BC49F2B167E4200FAE34D /* HomeButton.swift in Sources */,
+				E0E6C7F62B1C024E00146C5F /* Enums.swift in Sources */,
+				E0A603B02B1CC152004AE6CC /* StopWatchManager.swift in Sources */,
 				E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */,
 				E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */,
 				E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */,
@@ -472,7 +496,7 @@
 				E0AD04E42B190C6700F65098 /* DailyGameView.swift in Sources */,
 				E08BC49C2B16770200FAE34D /* Utils.swift in Sources */,
 				E0AD04EC2B1933C800F65098 /* GameHeader.swift in Sources */,
-				E0239B9E2B1A987B0034EFE5 /* TimerView.swift in Sources */,
+				E0E6C7F42B1BEF3C00146C5F /* GameInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
