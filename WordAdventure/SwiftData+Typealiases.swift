@@ -12,3 +12,4 @@ import SwiftUI
 import SwiftData
 
 typealias Word = ModelSchemaV1.Word
+typealias DailyGame = ModelSchemaV1.DailyGame

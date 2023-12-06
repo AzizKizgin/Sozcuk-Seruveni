@@ -24,7 +24,7 @@ struct WordAdventureApp: App {
     
     init() {
         do{
-            modelContainer = try ModelContainer(for: Word.self, migrationPlan: nil)
+            modelContainer = try ModelContainer(for: Word.self,DailyGame.self, migrationPlan: nil)
         }
         catch{
             fatalError("failed when initialize model container")

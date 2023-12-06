@@ -33,5 +33,17 @@ enum ModelSchemaV1: VersionedSchema{
             self.word = word
         }
     }
+    
+    @Model
+    class DailyGame{
+        @Attribute(.unique) var date: Date
+        var dailyGameQuestions: [Question]
+        var remainingTime: String
+        init(date: Date, dailyGameQuestions: [Question],remainingTime: String) {
+            self.date = date
+            self.dailyGameQuestions = dailyGameQuestions
+            self.remainingTime = remainingTime
+        }
+    }
 
 }
