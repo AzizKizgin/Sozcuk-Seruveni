@@ -7,14 +7,16 @@
 
 import Foundation
 import FirebaseFirestore
-
+import FirebaseAuth
 
 class FirebaseManager: NSObject {
     let firestore: Firestore
+    let auth: Auth
     static let shared = FirebaseManager()
     
     override init() {
         self.firestore = Firestore.firestore()
+        self.auth = Auth.auth()
         super.init()
     }
 }
