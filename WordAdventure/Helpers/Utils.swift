@@ -11,11 +11,20 @@ struct Utils{
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
-        let yearString = dateFormatter.string(from: date)
-        return yearString
+        let dayString = dateFormatter.string(from: date)
+        return dayString
     }
     
-   
+    static func isDateToday(_ date: Date) -> Bool {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        let todayComponents = calendar.dateComponents([.year, .month, .day], from: Date())
+
+        return components.year == todayComponents.year &&
+               components.month == todayComponents.month &&
+               components.day == todayComponents.day
+    }
+    
     static func getAllWords(completion: @escaping ([Word]?,Error?) -> Void) {
         let firestore = FirebaseManager.shared.firestore
         var questions: [Word] = []
