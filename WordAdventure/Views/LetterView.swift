@@ -11,7 +11,7 @@ struct LetterView: View {
     var letter: String
     
     var body: some View {
-        Text(letter.uppercased(with: .init(identifier: "tr_TR")))
+        Text(letter.localizedUppercased())
             .font(.system(size: 55))
             .frame(width: 120, height: 120)
             .letterCircleStyle()

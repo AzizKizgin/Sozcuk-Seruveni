@@ -25,7 +25,7 @@ class DailyGameViewModel: ObservableObject{
     }
     
     var currentQuestion: Question? {
-        questions.first { $0.letter == allLetters[index].lowercased(with: .init(identifier: "tr_TR")) }
+        questions.first { $0.letter == allLetters[index].localizedLowercased() }
     }
     
     func closeInfoScreen(){
@@ -38,17 +38,17 @@ class DailyGameViewModel: ObservableObject{
     }
     
     func checkAnswer() {
-        if let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].lowercased(with: .init(identifier: "tr_TR")) }) {
+        if let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].localizedLowercased() }) {
             if answer.lowercased() == "bitir" {
                 screen = .result
             }
             else if answer == "" {
-                questions[currentIndex].answerState = .isPassed
-            } else if answer.lowercased(with: .init(identifier: "tr_TR")) == questions[currentIndex].word.lowercased(with: .init(identifier: "tr_TR")) {
-                questions[currentIndex].answerState = .isCorrect
+                questions[currentIndex].answerState = AnswerState.isPassed
+            } else if answer.localizedLowercased() == questions[currentIndex].word.localizedLowercased() {
+                questions[currentIndex].answerState = AnswerState.isCorrect
                 questions[currentIndex].userAnswer = answer
             } else {
-                questions[currentIndex].answerState = .isWrong
+                questions[currentIndex].answerState = AnswerState.isWrong
                 questions[currentIndex].userAnswer = answer
             }
         }
@@ -59,10 +59,10 @@ class DailyGameViewModel: ObservableObject{
     func getNextQuestion() {
         while !allLetters.isEmpty {
             index = (index + 1) % allLetters.count
-            let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].lowercased(with: .init(identifier: "tr_TR")) })
+            let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].localizedLowercased() })
 
             if let currentIndex = currentIndex,
-               questions[currentIndex].answerState == .none || questions[currentIndex].answerState == .isPassed {
+               questions[currentIndex].answerState == AnswerState.none || questions[currentIndex].answerState == AnswerState.isPassed {
                 return
             }
         }
@@ -88,11 +88,10 @@ class DailyGameViewModel: ObservableObject{
                     }
                     completion(nil)
                 } else {
-                    let dataError = NSError(domain: "YourDomain", code: 500, userInfo: [NSLocalizedDescriptionKey: "No data found"])
+                    let dataError = NSError(domain: "", code: 500, userInfo: [NSLocalizedDescriptionKey: "No data found"])
                     completion(dataError)
                 }
             }
         }
-        isLoading.toggle()
     }
 }

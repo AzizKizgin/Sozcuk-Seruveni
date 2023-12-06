@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameHeader: View {
     let letter: String
-    let answerState: AnswerState
+    let answerState: Int
     let remainingTime: String
     let isFocused: Bool
     var body: some View {
@@ -17,7 +17,7 @@ struct GameHeader: View {
         let circleSize: CGFloat = UIDevice.current.userInterfaceIdiom == .phone && isFocused ? 50 : 120
         let layout = condition ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
         layout{
-            Text(letter.uppercased(with: .init(identifier: "tr_TR")))
+            Text(letter.localizedUppercased())
                 .font(.system(size: condition ? 25 : 55))
                 .frame(width: circleSize,height: circleSize)
                 .scaledToFit()
@@ -29,7 +29,7 @@ struct GameHeader: View {
                             .strokeBorder(.accent, lineWidth: 1)
                     }
                 )
-                .foregroundColor(answerState == .none ? .accent : .white)
+                .foregroundColor(answerState == AnswerState.none ? .accent : .white)
                 Text(remainingTime)
                     .foregroundStyle(.accent)
                     .padding()
@@ -43,18 +43,20 @@ struct GameHeader: View {
 extension GameHeader{
     func getCircleColor() -> Color{
         switch answerState{
-        case .isCorrect:
+        case AnswerState.isCorrect:
             return .green
-        case .isPassed:
+        case AnswerState.isPassed:
             return .yellow
-        case .isWrong:
+        case AnswerState.isWrong:
             return .red
-        case .none:
+        case AnswerState.none:
+            return .white
+        default:
             return .white
         }
     }
 }
 
 #Preview {
-    GameHeader(letter: "i", answerState: .none, remainingTime: "02.33",isFocused: false)
+    GameHeader(letter: "i", answerState: AnswerState.none, remainingTime: "02.33",isFocused: false)
 }

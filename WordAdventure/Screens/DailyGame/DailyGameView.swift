@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DailyGameView: View {
     @StateObject var dailyGameViewModel = DailyGameViewModel()
     @StateObject var stopWatchManager = StopWatchManager()
     @Environment(\.dismiss) var dismiss
     @FocusState var isFocused
+    @Query var savedDailyGame: [DailyGame]
     var body: some View {
         VStack{
             if dailyGameViewModel.screen == .game {
@@ -56,7 +58,7 @@ struct DailyGameView: View {
                         HStack{
                             GameHeader(
                                 letter: dailyGameViewModel.currentLetter,
-                                answerState: dailyGameViewModel.currentQuestion?.answerState ?? .none,
+                                answerState: dailyGameViewModel.currentQuestion?.answerState ?? AnswerState.none,
                                 remainingTime: stopWatchManager.formatElapsedTime(),
                                 isFocused: isFocused
                             )
@@ -101,10 +103,15 @@ struct DailyGameView: View {
                 GameInfo(onClose: dailyGameViewModel.closeInfoScreen)
             }
             else{
-                GameSummaryView(questions: dailyGameViewModel.questions, remainingTime: stopWatchManager.formatElapsedTime())
+                GameSummaryView(questions: dailyGameViewModel.questions, remainingTime: stopWatchManager.formatElapsedTime(),saveQuestions:true)
             }
         }
         .animation(.default, value: dailyGameViewModel.screen)
+        .onAppear{
+            if let firstGame = savedDailyGame.first, !firstGame.dailyGameQuestions.isEmpty {
+                dailyGameViewModel.screen = .result
+            }
+        }
     }
 }
 

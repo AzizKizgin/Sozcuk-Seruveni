@@ -26,7 +26,7 @@ struct AnswersView: View {
                             getIcon(answerState: item.answerState)
                             Text(item.word)
                             Spacer()
-                            Text(item.letter.uppercased(with: .init(identifier: "tr_TR")))
+                            Text(item.letter.localizedUppercased())
                             Image(systemName: "chevron.down")
                         }
                         .fontWeight(.bold)
@@ -65,20 +65,23 @@ struct AnswersView: View {
 }
 
 extension AnswersView{
-    func getIcon(answerState: AnswerState) -> some View{
+    func getIcon(answerState: Int) -> some View{
         var image = "arrowshape.forward.circle.fill"
         var color: Color = .yellow
         switch answerState{
-        case .isCorrect:
+        case AnswerState.isCorrect:
             image = "checkmark.circle.fill"
             color = .green
-        case .isWrong:
+        case AnswerState.isWrong:
             image = "multiply.circle.fill"
             color = .red
-        case .isPassed:
+        case AnswerState.isPassed:
             image = "arrowshape.forward.circle.fill"
             color = .yellow
-        case .none:
+        case AnswerState.none:
+            image = "arrowshape.forward.circle.fill"
+            color = .yellow
+        default:
             image = "arrowshape.forward.circle.fill"
             color = .yellow
         }
@@ -87,15 +90,17 @@ extension AnswersView{
             .foregroundStyle(color)
     }
     
-    func getColor(answerState: AnswerState) -> Color{
+    func getColor(answerState: Int) -> Color{
         switch answerState{
-        case .isCorrect:
+        case AnswerState.isCorrect:
             return .green
-        case .isWrong:
+        case AnswerState.isWrong:
             return .red
-        case .isPassed:
+        case AnswerState.isPassed:
+            return .yellow
+        case AnswerState.none:
             return .black
-        case .none:
+        default:
             return .yellow
         }
     }

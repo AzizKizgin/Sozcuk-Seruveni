@@ -7,14 +7,16 @@
 
 import Foundation
 
-enum AnswerState{
-    case isCorrect, isWrong, isPassed, none
+enum AnswerState {
+    static let none = 0
+    static let isCorrect = 1
+    static let isWrong = 2
+    static let isPassed = 3
 }
-
-struct Question{
+struct Question: Codable{
     let letter: String
     let meaning: String
     let word: String
-    var answerState: AnswerState = .none
+    var answerState: Int = 0
     var userAnswer: String = "-"
 }
