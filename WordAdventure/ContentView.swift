@@ -11,6 +11,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("lastUpdate") var lastUpdate: String = ""
     @State var showSplash: Bool = true
+    let auth = FirebaseManager.shared.auth
     var body: some View {
         VStack{
             if showSplash{
@@ -21,17 +22,24 @@ struct ContentView: View {
             }
         }
         .onAppear{
+            auth.signInAnonymously()
             Utils.getLastUpdateDate{ (date, error) in
                 if let date = date{
-                    if lastUpdate != date {
-                        Utils.getAllWords{ (words, error) in
-                            if let words{
-                                words.forEach{word in
-                                    modelContext.insert(word)
+                    do {
+                        try modelContext.delete(model: Word.self)
+                        if lastUpdate != date {
+                            Utils.getAllWords{ (words, error) in
+                                if let words{
+                                    words.forEach{word in
+                                        modelContext.insert(word)
+                                    }
+                                    lastUpdate = date
                                 }
-                                lastUpdate = date
                             }
                         }
+                        try modelContext.save()
+                    } catch {
+                        print("error")
                     }
                 }
                 else{
