@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E0472D972B1B8E7200762B15 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D962B1B8E7200762B15 /* FakeData.swift */; };
 		E0472D9C2B1B9E0500762B15 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */; };
+		E0485E882B1F74CF007C37DD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0485E872B1F74CF007C37DD /* String.swift */; };
 		E051F2292B18DA9F000462D6 /* ModelSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051F2282B18DA9F000462D6 /* ModelSchemaV1.swift */; };
 		E06B1ADC2B166BFF007F174B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06B1ADB2B166BFF007F174B /* HomeView.swift */; };
 		E08A7F4A2B1B84E300008157 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E08A7F492B1B84E300008157 /* FirebaseAuth */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		E0472D962B1B8E7200762B15 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
+		E0485E872B1F74CF007C37DD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E051F2282B18DA9F000462D6 /* ModelSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSchemaV1.swift; sourceTree = "<group>"; };
 		E06B1ADB2B166BFF007F174B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E08BC49B2B16770200FAE34D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				E0AD04E92B19161200F65098 /* View.swift */,
 				E0472D962B1B8E7200762B15 /* FakeData.swift */,
 				E0E6C7F52B1C024E00146C5F /* Enums.swift */,
+				E0485E872B1F74CF007C37DD /* String.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				E08BC49F2B167E4200FAE34D /* HomeButton.swift in Sources */,
 				E0E6C7F62B1C024E00146C5F /* Enums.swift in Sources */,
 				E0A603B02B1CC152004AE6CC /* StopWatchManager.swift in Sources */,
+				E0485E882B1F74CF007C37DD /* String.swift in Sources */,
 				E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */,
 				E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */,
 				E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */,
