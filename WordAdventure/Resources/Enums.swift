@@ -10,3 +10,7 @@ import Foundation
 enum GameScreenType{
     case game, info, result
 }
+
+enum GameMode{
+    case daily, normal
+}
