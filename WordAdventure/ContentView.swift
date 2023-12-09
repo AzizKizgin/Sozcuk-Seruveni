@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("lastUpdate") var lastUpdate: String = ""
+    @AppStorage("isDarkTheme") var isDarkTheme = false
     @State var showSplash: Bool = true
     let auth = FirebaseManager.shared.auth
     var body: some View {
@@ -49,9 +51,18 @@ struct ContentView: View {
                 }
             }
         }
+        .preferredColorScheme(isDarkTheme ? .dark: .light)
     }
 }
 
 #Preview {
-    ContentView()
+    MainActor.assumeIsolated{
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: Word.self,DailyGame.self, configurations: config)
+        return
+            NavigationStack{
+                ContentView()
+        }
+        .modelContainer(container)
+    }
 }
