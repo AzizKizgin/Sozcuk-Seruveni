@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var showDaily: Bool = false
-    @State var showInfinity: Bool = false
+    @State var showNormal: Bool = false
     var body: some View {
         NavigationStack{
             VStack{
@@ -18,7 +18,7 @@ struct HomeView: View {
                         showDaily.toggle()
                     })
                     HomeButton(title: "Sınırsız", onPress: {
-                        showInfinity.toggle()
+                        showNormal.toggle()
                     },icon:"infinity.circle")
                 }
             }
@@ -36,8 +36,8 @@ struct HomeView: View {
             .navigationDestination(isPresented: $showDaily){
                 GameView(gameMode: .daily)
             }
-            .navigationDestination(isPresented: $showInfinity){
-                
+            .navigationDestination(isPresented: $showNormal){
+                GameView(gameMode: .normal)
             }
         }
     }
