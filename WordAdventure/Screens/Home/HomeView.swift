@@ -34,7 +34,7 @@ struct HomeView: View {
             }
             .padding()
             .navigationDestination(isPresented: $showDaily){
-                DailyGameView()
+                GameView(gameMode: .daily)
             }
             .navigationDestination(isPresented: $showInfinity){
                 
