@@ -46,8 +46,8 @@ struct Utils{
                     }
                 }
             }
+            completion(questions,nil)
         }
-        completion(questions,nil)
     }
     
     static func getLastUpdateDate(completion: @escaping (String?,Error?) -> Void){
@@ -67,5 +67,15 @@ struct Utils{
                 }
             }
         }
+    }
+    
+    static func getNormalGameQuestions(words: [Word]) -> [Question]{
+        var questions: [Question] = []
+        letters.forEach{ letter in
+            var shuffledWord = words.filter({$0.letter == letter}).shuffled()[0]
+            let question = Question(letter: shuffledWord.letter, meaning: shuffledWord.meaning, word: shuffledWord.word)
+            questions.append(question)
+        }
+        return questions
     }
 }
