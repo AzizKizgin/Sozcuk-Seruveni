@@ -12,6 +12,7 @@ struct ScoreView: View {
     let wrongCount: Int
     let passCount: Int
     let remainingTime: String
+    let gameMode: GameMode
     var body: some View {
         VStack(spacing: 50){
             VStack(spacing: 10){
@@ -26,15 +27,17 @@ struct ScoreView: View {
                 }
                 .padding()
             }
-            ShareButton(correctCount: 10, wrongCount: 10, passCount: 10, remainingTime: "01.33")
-            NextGameTimer()
+            ShareButton(correctCount: 10, wrongCount: 10, passCount: 10, remainingTime: "01.33", gameMode: gameMode)
+            if gameMode == .daily {
+                NextGameTimer()
+            }
         }
         .foregroundStyle(.accent)
     }
 }
 
 #Preview {
-    ScoreView(correctCount: 4, wrongCount: 1, passCount: 10, remainingTime: "01.43")
+    ScoreView(correctCount: 4, wrongCount: 1, passCount: 10, remainingTime: "01.43", gameMode: .normal)
 }
 
 
