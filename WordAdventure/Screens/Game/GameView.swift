@@ -67,14 +67,12 @@ struct GameView: View {
                     }
                 }
                 .onAppear{
-                    if gameMode == .daily{
-                        gameViewModel.questions = fakeData
-//                        gameViewModel.getQuestions{ error in
-//                            print("pat")
-//                            if error != nil{
-//                                gameViewModel.showNoQuestionAlert.toggle()
-//                            }
-//                        }
+                    if gameMode == .daily {
+                        gameViewModel.getQuestions{ error in
+                            if error != nil{
+                                gameViewModel.showNoQuestionAlert.toggle()
+                            }
+                        }
                     }
                     else{
                         getNormalGameQuestions()
