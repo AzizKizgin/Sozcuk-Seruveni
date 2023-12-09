@@ -40,19 +40,6 @@ struct GameView: View {
                     .background(Color.accent.opacity(0.1))
                     .cornerRadius(15)
                 }
-                .navigationBarBackButtonHidden(true)
-                .toolbar{
-                    ToolbarItem(placement: .topBarLeading){
-                        Button {
-                            gameViewModel.showCloseAlert.toggle()
-                        } label: {
-                            HStack {
-                                Image(systemName: "chevron.backward")
-                                Text("Kapat")
-                            }
-                        }
-                    }
-                }
                 .frame(maxHeight: .infinity)
                 .padding()
                 .overlay(alignment: .top){
@@ -81,11 +68,13 @@ struct GameView: View {
                 }
                 .onAppear{
                     if gameMode == .daily{
-                        //            gameViewModel.getQuestions{ error in
-                        //                if error != nil{
-                        //                    gameViewModel.showNoQuestionAlert.toggle()
-                        //                }
-                        //            }
+                        gameViewModel.questions = fakeData
+//                        gameViewModel.getQuestions{ error in
+//                            print("pat")
+//                            if error != nil{
+//                                gameViewModel.showNoQuestionAlert.toggle()
+//                            }
+//                        }
                     }
                     else{
                         getNormalGameQuestions()
@@ -126,6 +115,25 @@ struct GameView: View {
         .onAppear{
             if let firstGame = savedDailyGame.first, !firstGame.dailyGameQuestions.isEmpty , gameMode == .daily , Utils.isDateToday(firstGame.date) {
                 gameViewModel.screen = .result
+            }
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar{
+            ToolbarItem(placement: .topBarLeading){
+                Button {
+                    if gameViewModel.screen == .game {
+                        gameViewModel.showCloseAlert.toggle()
+                    }
+                    else{
+                        dismiss()
+                    }
+                } label: {
+                    HStack(spacing:5){
+                        Image(systemName: "chevron.backward")
+                            .fontWeight(.medium)
+                        Text("Kapat")
+                    }
+                }
             }
         }
     }
