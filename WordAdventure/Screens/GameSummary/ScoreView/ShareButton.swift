@@ -30,7 +30,7 @@ struct ShareButton: View {
 
 extension ShareButton{
     private func getShareItem() -> String{
-        return "Sözcük Serüveni\n\n🟢 \(correctCount) Doğru\n🔴 \(wrongCount) Yanlış\n🟡 \(passCount) Pass\n\n🕒 Kalan Süre \(remainingTime)\n"
+        return "Sözcük Serüveni\n\n🟢 \(correctCount) Doğru\n🔴 \(wrongCount) Yanlış\n🟡 \(passCount) Pas\n\n🕒 Kalan Süre \(remainingTime)\n"
     }
 }
 
