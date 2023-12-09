@@ -24,7 +24,7 @@ struct ContentView: View {
         .onAppear{
             auth.signInAnonymously()
             Utils.getLastUpdateDate{ (date, error) in
-                if let date = date{
+                if let date = date, lastUpdate.isEmpty{
                     do {
                         try modelContext.delete(model: Word.self)
                         if lastUpdate != date {
@@ -39,11 +39,8 @@ struct ContentView: View {
                         }
                         try modelContext.save()
                     } catch {
-                        print("error")
+                        lastUpdate = ""
                     }
-                }
-                else{
-                    print("error")
                 }
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
