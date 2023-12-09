@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State var showDaily: Bool = false
     @State var showNormal: Bool = false
+    @State var goSettings: Bool = false
     var body: some View {
         NavigationStack{
             VStack{
@@ -38,6 +39,17 @@ struct HomeView: View {
             }
             .navigationDestination(isPresented: $showNormal){
                 GameView(gameMode: .normal)
+            }
+            .toolbar{
+                ToolbarItem(placement: .topBarTrailing){
+                    Button(action: {goSettings.toggle()}, label: {
+                        Image(systemName: "gear")
+                            .font(.title2)
+                    })
+                }
+            }
+            .navigationDestination(isPresented: $goSettings){
+                SettingsView()
             }
         }
     }
