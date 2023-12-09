@@ -60,7 +60,7 @@ class GameViewModel: ObservableObject{
             index = (index + 1) % allLetters.count
             let currentIndex = questions.firstIndex(where: { $0.letter == allLetters[index].localizedLowercased() })
 
-            if let currentIndex = currentIndex,
+            if let currentIndex,
                questions[currentIndex].answerState == AnswerState.none || questions[currentIndex].answerState == AnswerState.isPassed {
                 return
             }
