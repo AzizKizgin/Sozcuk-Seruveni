@@ -41,7 +41,7 @@ class GameViewModel: ObservableObject{
             if answer.lowercased() == "bitir" {
                 screen = .result
             }
-            else if answer == "" {
+            else if answer == "" && answer.lowercased() == "pas" {
                 questions[currentIndex].answerState = AnswerState.isPassed
             } else if answer.localizedLowercased() == questions[currentIndex].word.localizedLowercased() {
                 questions[currentIndex].answerState = AnswerState.isCorrect
