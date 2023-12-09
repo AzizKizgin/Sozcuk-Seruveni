@@ -13,13 +13,15 @@ struct GameSummaryView: View {
     @State private var tabSelection = 0
     let questions: [Question]
     let remainingTime: String
+    let gameMode: GameMode
     var body: some View {
         TabView(selection: $tabSelection){
             ScoreView(
                 correctCount: getQuestionsStats().correctCount,
                 wrongCount: getQuestionsStats().wrongCount,
                 passCount: getQuestionsStats().passCount,
-                remainingTime: remainingTime
+                remainingTime: remainingTime,
+                gameMode: gameMode
             )
                 .tag(0)
             AnswersView(questions: questions)
@@ -65,6 +67,6 @@ extension GameSummaryView{
 
 #Preview {
     NavigationStack{
-        GameSummaryView(questions: fakeDataWithAnswer, remainingTime: "02.00")
+        GameSummaryView(questions: fakeDataWithAnswer, remainingTime: "02.00", gameMode: .normal)
     }
 }
