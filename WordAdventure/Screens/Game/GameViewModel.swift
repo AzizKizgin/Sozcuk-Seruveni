@@ -17,6 +17,7 @@ class GameViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var showNoQuestionAlert: Bool = false
     @Published var showCloseAlert: Bool = false
+    @Published var showSomethingWrongAlert: Bool = false
     @Published var screen: GameScreenType = .info
     
     var currentLetter: String {
