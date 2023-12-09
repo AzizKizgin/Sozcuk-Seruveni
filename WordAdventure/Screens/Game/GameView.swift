@@ -8,8 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct DailyGameView: View {
-    @StateObject var dailyGameViewModel = DailyGameViewModel()
+struct GameView: View {
+    let gameMode: GameMode
+    @StateObject var gameViewModel = GameViewModel()
     @StateObject var stopWatchManager = StopWatchManager()
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
@@ -17,21 +18,21 @@ struct DailyGameView: View {
     @Query var savedDailyGame: [DailyGame]
     var body: some View {
         VStack{
-            if dailyGameViewModel.screen == .game {
+            if gameViewModel.screen == .game {
                 VStack{
-                    Text(dailyGameViewModel.currentQuestion?.meaning ?? "")
+                    Text(gameViewModel.currentQuestion?.meaning ?? "")
                         .font(UIDevice.current.userInterfaceIdiom == .phone ? .title2: .title)
                         .frame(height: 250)
                     HStack{
-                        TextField("Cevap", text: $dailyGameViewModel.answer)
+                        TextField("Cevap", text: $gameViewModel.answer)
                             .focused($isFocused)
                             .onSubmit {
-                                dailyGameViewModel.checkAnswer()
+                                gameViewModel.checkAnswer()
                             }
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
-                        Button(action: dailyGameViewModel.checkAnswer, label: {
-                            dailyGameViewModel.answer.isEmpty ? Text("Pas"): Text("Cevapla")
+                        Button(action: gameViewModel.checkAnswer, label: {
+                            gameViewModel.answer.isEmpty ? Text("Pas"): Text("Cevapla")
                         })
                         .buttonStyle(.borderedProminent)
                     }
@@ -43,7 +44,7 @@ struct DailyGameView: View {
                 .toolbar{
                     ToolbarItem(placement: .topBarLeading){
                         Button {
-                            dailyGameViewModel.showCloseAlert.toggle()
+                            gameViewModel.showCloseAlert.toggle()
                         } label: {
                             HStack {
                                 Image(systemName: "chevron.backward")
@@ -58,8 +59,8 @@ struct DailyGameView: View {
                     VStack(spacing:10){
                         HStack{
                             GameHeader(
-                                letter: dailyGameViewModel.currentLetter,
-                                answerState: dailyGameViewModel.currentQuestion?.answerState ?? AnswerState.none,
+                                letter: gameViewModel.currentLetter,
+                                answerState: gameViewModel.currentQuestion?.answerState ?? AnswerState.none,
                                 remainingTime: stopWatchManager.formatElapsedTime(),
                                 isFocused: isFocused
                             )
@@ -72,79 +73,81 @@ struct DailyGameView: View {
                             .onChange(of: stopWatchManager.remainingTime){ oldValue, newValue in
                                 if newValue == 0 {
                                     stopWatchManager.stop()
-                                    dailyGameViewModel.showResultScreen(time: stopWatchManager.formatElapsedTime())
+                                    gameViewModel.showResultScreen()
                                 }
                             }
                         }
                     }
                 }
                 .onAppear{
-        //            dailyGameViewModel.getQuestions{ error in
-        //                if error != nil{
-        //                    dailyGameViewModel.showNoQuestionAlert.toggle()
-        //                }
-        //            }
-                    dailyGameViewModel.questions = fakeData
+                    if gameMode == .daily{
+                        //            gameViewModel.getQuestions{ error in
+                        //                if error != nil{
+                        //                    gameViewModel.showNoQuestionAlert.toggle()
+                        //                }
+                        //            }
+                    }
+                    gameViewModel.questions = fakeData
                 }
-                .alert("Sorular yüklenemedi", isPresented: $dailyGameViewModel.showNoQuestionAlert){
+                .alert("Sorular yüklenemedi", isPresented: $gameViewModel.showNoQuestionAlert){
                     Button("Tamam", role: .cancel) {
-                        dailyGameViewModel.showNoQuestionAlert.toggle()
+                        gameViewModel.showNoQuestionAlert.toggle()
                     }
                 }
-                .alert("Çıkmak istediğinden emin misin?", isPresented: $dailyGameViewModel.showCloseAlert){
+                .alert("Çıkmak istediğinden emin misin?", isPresented: $gameViewModel.showCloseAlert){
                     Button("Hayır", role: .cancel) {
-                        dailyGameViewModel.showCloseAlert.toggle()
+                        gameViewModel.showCloseAlert.toggle()
                     }
                     Button("Evet", role: .destructive) {
                         dismiss()
                     }
                 }
             }
-            else if dailyGameViewModel.screen == .info{
-                GameInfo(onClose: dailyGameViewModel.closeInfoScreen)
+            else if gameViewModel.screen == .info{
+                GameInfo(onClose: gameViewModel.closeInfoScreen)
             }
             else{
-                GameSummaryView(questions: getQuestionsForSummary(), remainingTime: getRemainingTimeForSummary(),saveQuestions:true)
+                GameSummaryView(questions: getQuestionsForSummary(), remainingTime: getRemainingTimeForSummary())
+                    .onAppear{
+                        if gameMode == .daily{
+                            saveDailyGame()
+                        }
+                    }
             }
         }
-        .animation(.default, value: dailyGameViewModel.screen)
+        .animation(.default, value: gameViewModel.screen)
         .onAppear{
-            if let firstGame = savedDailyGame.first, !firstGame.dailyGameQuestions.isEmpty {
-                dailyGameViewModel.screen = .result
-            }
-        }
-        .onDisappear{
-            if true{
-                saveDailyGame()
+            if let firstGame = savedDailyGame.first, !firstGame.dailyGameQuestions.isEmpty , gameMode == .daily , Utils.isDateToday(firstGame.date) {
+                gameViewModel.screen = .result
             }
         }
     }
 }
 
-extension DailyGameView{
+extension GameView{
     func getRemainingTimeForSummary() -> String{
-        let time: String = savedDailyGame.isEmpty
-            ? stopWatchManager.formatElapsedTime()
-            : savedDailyGame[0].remainingTime
-        return time
+        if gameMode == .daily && !savedDailyGame.isEmpty{
+            return savedDailyGame[0].remainingTime
+        }
+        return stopWatchManager.formatElapsedTime()
     }
     
     func getQuestionsForSummary() -> [Question]{
-        let questionArray: [Question] = savedDailyGame.isEmpty || savedDailyGame[0].dailyGameQuestions.isEmpty
-            ? dailyGameViewModel.questions
-            : savedDailyGame[0].dailyGameQuestions
-        return questionArray
+        if gameMode == .daily && !savedDailyGame.isEmpty && !savedDailyGame[0].dailyGameQuestions.isEmpty {
+            return savedDailyGame[0].dailyGameQuestions
+        }
+        return gameViewModel.questions
     }
     
     func saveDailyGame(){
         do{
             if savedDailyGame.isEmpty{
-                let newDailyGame = DailyGame(date: .now, dailyGameQuestions: dailyGameViewModel.questions, remainingTime: savedDailyGame[0].remainingTime)
+                let newDailyGame = DailyGame(date: .now, dailyGameQuestions: gameViewModel.questions, remainingTime: stopWatchManager.formatElapsedTime())
                 modelContext.insert(newDailyGame)
             }
             else if let savedData = savedDailyGame.first, !Utils.isDateToday(savedData.date){
                 modelContext.delete(savedData)
-                let newDailyGame = DailyGame(date: .now, dailyGameQuestions: dailyGameViewModel.questions, remainingTime: savedDailyGame[0].remainingTime)
+                let newDailyGame = DailyGame(date: .now, dailyGameQuestions: gameViewModel.questions, remainingTime: stopWatchManager.formatElapsedTime())
                 modelContext.insert(newDailyGame)
             }
             try modelContext.save()
@@ -157,6 +160,6 @@ extension DailyGameView{
 
 #Preview {
     NavigationStack{
-        DailyGameView()
+        GameView(gameMode: .daily)
     }
 }

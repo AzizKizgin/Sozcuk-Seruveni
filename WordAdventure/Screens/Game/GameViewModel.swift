@@ -8,7 +8,7 @@
 import Foundation
 
 
-class DailyGameViewModel: ObservableObject{
+class GameViewModel: ObservableObject{
     let firestore = FirebaseManager.shared.firestore
     @Published var questions: [Question] = []
     @Published var allLetters: [String] = letters
@@ -17,7 +17,6 @@ class DailyGameViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var showNoQuestionAlert: Bool = false
     @Published var showCloseAlert: Bool = false
-    @Published var remainingTime: String = ""
     @Published var screen: GameScreenType = .info
     
     var currentLetter: String {
@@ -32,8 +31,7 @@ class DailyGameViewModel: ObservableObject{
         screen = .game
     }
     
-    func showResultScreen(time: String){
-        remainingTime = time
+    func showResultScreen(){
         screen = .result
     }
     
