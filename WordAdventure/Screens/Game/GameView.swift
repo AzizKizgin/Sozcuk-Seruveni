@@ -48,7 +48,7 @@ struct GameView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "chevron.backward")
-                                Text("Close")
+                                Text("Kapat")
                             }
                         }
                     }
@@ -87,11 +87,18 @@ struct GameView: View {
                         //                }
                         //            }
                     }
-                    gameViewModel.questions = fakeData
+                    else{
+                        getNormalGameQuestions()
+                    }
                 }
                 .alert("Sorular yüklenemedi", isPresented: $gameViewModel.showNoQuestionAlert){
                     Button("Tamam", role: .cancel) {
                         gameViewModel.showNoQuestionAlert.toggle()
+                    }
+                }
+                .alert("Bir şeyler yanlış gitti", isPresented: $gameViewModel.showSomethingWrongAlert){
+                    Button("Tamam", role: .cancel) {
+                        gameViewModel.showSomethingWrongAlert.toggle()
                     }
                 }
                 .alert("Çıkmak istediğinden emin misin?", isPresented: $gameViewModel.showCloseAlert){
@@ -107,7 +114,7 @@ struct GameView: View {
                 GameInfo(onClose: gameViewModel.closeInfoScreen)
             }
             else{
-                GameSummaryView(questions: getQuestionsForSummary(), remainingTime: getRemainingTimeForSummary())
+                GameSummaryView(questions: getQuestionsForSummary(), remainingTime: getRemainingTimeForSummary(), gameMode: gameMode)
                     .onAppear{
                         if gameMode == .daily{
                             saveDailyGame()
@@ -153,7 +160,18 @@ extension GameView{
             try modelContext.save()
         }
         catch{
-            
+            gameViewModel.showSomethingWrongAlert.toggle()
+        }
+    }
+    
+    func getNormalGameQuestions() {
+        let fetchDescriptor = FetchDescriptor<Word>()
+        do {
+            let words: [Word] = try modelContext.fetch(fetchDescriptor)
+            let normalGameQuestions: [Question] = Utils.getNormalGameQuestions(words: words)
+            self.gameViewModel.questions = normalGameQuestions
+        } catch {
+            gameViewModel.showNoQuestionAlert.toggle()
         }
     }
 }
