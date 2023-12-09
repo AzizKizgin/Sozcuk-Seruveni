@@ -12,6 +12,7 @@ struct ShareButton: View {
     let wrongCount: Int
     let passCount: Int
     let remainingTime: String
+    let gameMode: GameMode
 
     var body: some View {
         ShareLink(item: getShareItem(),   preview: SharePreview("Sonucunu Paylaş")){
@@ -30,10 +31,10 @@ struct ShareButton: View {
 
 extension ShareButton{
     private func getShareItem() -> String{
-        return "Sözcük Serüveni\n\n🟢 \(correctCount) Doğru\n🔴 \(wrongCount) Yanlış\n🟡 \(passCount) Pas\n\n🕒 Kalan Süre \(remainingTime)\n"
+        return "Sözcük Serüveni \(gameMode == .normal ? "(Sınırsız)" : "")\n\n🟢 \(correctCount) Doğru\n🔴 \(wrongCount) Yanlış\n🟡 \(passCount) Pas\n\n🕒 Kalan Süre \(remainingTime)\n"
     }
 }
 
 #Preview {
-    ShareButton(correctCount: 10, wrongCount: 10, passCount: 10, remainingTime: "02.33")
+    ShareButton(correctCount: 10, wrongCount: 10, passCount: 10, remainingTime: "02.33", gameMode: .normal)
 }
