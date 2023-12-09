@@ -12,6 +12,7 @@ struct DailyGameView: View {
     @StateObject var dailyGameViewModel = DailyGameViewModel()
     @StateObject var stopWatchManager = StopWatchManager()
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) private var modelContext
     @FocusState var isFocused
     @Query var savedDailyGame: [DailyGame]
     var body: some View {
@@ -103,7 +104,7 @@ struct DailyGameView: View {
                 GameInfo(onClose: dailyGameViewModel.closeInfoScreen)
             }
             else{
-                GameSummaryView(questions: dailyGameViewModel.questions, remainingTime: stopWatchManager.formatElapsedTime(),saveQuestions:true)
+                GameSummaryView(questions: getQuestionsForSummary(), remainingTime: getRemainingTimeForSummary(),saveQuestions:true)
             }
         }
         .animation(.default, value: dailyGameViewModel.screen)
@@ -111,6 +112,45 @@ struct DailyGameView: View {
             if let firstGame = savedDailyGame.first, !firstGame.dailyGameQuestions.isEmpty {
                 dailyGameViewModel.screen = .result
             }
+        }
+        .onDisappear{
+            if true{
+                saveDailyGame()
+            }
+        }
+    }
+}
+
+extension DailyGameView{
+    func getRemainingTimeForSummary() -> String{
+        let time: String = savedDailyGame.isEmpty
+            ? stopWatchManager.formatElapsedTime()
+            : savedDailyGame[0].remainingTime
+        return time
+    }
+    
+    func getQuestionsForSummary() -> [Question]{
+        let questionArray: [Question] = savedDailyGame.isEmpty || savedDailyGame[0].dailyGameQuestions.isEmpty
+            ? dailyGameViewModel.questions
+            : savedDailyGame[0].dailyGameQuestions
+        return questionArray
+    }
+    
+    func saveDailyGame(){
+        do{
+            if savedDailyGame.isEmpty{
+                let newDailyGame = DailyGame(date: .now, dailyGameQuestions: dailyGameViewModel.questions, remainingTime: savedDailyGame[0].remainingTime)
+                modelContext.insert(newDailyGame)
+            }
+            else if let savedData = savedDailyGame.first, !Utils.isDateToday(savedData.date){
+                modelContext.delete(savedData)
+                let newDailyGame = DailyGame(date: .now, dailyGameQuestions: dailyGameViewModel.questions, remainingTime: savedDailyGame[0].remainingTime)
+                modelContext.insert(newDailyGame)
+            }
+            try modelContext.save()
+        }
+        catch{
+            
         }
     }
 }
