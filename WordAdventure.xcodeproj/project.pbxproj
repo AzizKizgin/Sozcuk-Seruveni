@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E013B72D2B252C09007F221A /* ThemeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013B72C2B252C09007F221A /* ThemeToggle.swift */; };
+		E013B7302B252CD1007F221A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013B72F2B252CD1007F221A /* SettingsView.swift */; };
 		E0472D972B1B8E7200762B15 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D962B1B8E7200762B15 /* FakeData.swift */; };
 		E0472D9C2B1B9E0500762B15 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */; };
 		E0485E882B1F74CF007C37DD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0485E872B1F74CF007C37DD /* String.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E013B72C2B252C09007F221A /* ThemeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeToggle.swift; sourceTree = "<group>"; };
+		E013B72F2B252CD1007F221A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E0472D962B1B8E7200762B15 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		E0472D9B2B1B9E0500762B15 /* GameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
 		E0485E872B1F74CF007C37DD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E013B72E2B252CC2007F221A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E013B72C2B252C09007F221A /* ThemeToggle.swift */,
+				E013B72F2B252CD1007F221A /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		E0472D982B1B9D9300762B15 /* GameSummary */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +166,7 @@
 		E06B1ADA2B166BD5007F174B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E08BC49E2B167E4200FAE34D /* HomeButton.swift */,
 				E06B1ADB2B166BFF007F174B /* HomeView.swift */,
 			);
 			path = Home;
@@ -169,7 +183,6 @@
 		E08BC49D2B167DBB00FAE34D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E08BC49E2B167E4200FAE34D /* HomeButton.swift */,
 				E0AD04E72B1915E300F65098 /* LetterView.swift */,
 				E0AD04EB2B1933C800F65098 /* GameHeader.swift */,
 			);
@@ -325,6 +338,7 @@
 		E0F9131D2B17BB7000BDE3F0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E013B72E2B252CC2007F221A /* Settings */,
 				E0E6C7F22B1BEF2C00146C5F /* GameInfo */,
 				E0472D982B1B9D9300762B15 /* GameSummary */,
 				E0AD04E22B190C5100F65098 /* Game */,
@@ -488,6 +502,7 @@
 				E091B0172B122E1E00B78472 /* ContentView.swift in Sources */,
 				E0E6C7E52B1BB19900146C5F /* ScoreView.swift in Sources */,
 				E091B0152B122E1E00B78472 /* WordAdventureApp.swift in Sources */,
+				E013B7302B252CD1007F221A /* SettingsView.swift in Sources */,
 				E08BC49F2B167E4200FAE34D /* HomeButton.swift in Sources */,
 				E0E6C7F62B1C024E00146C5F /* Enums.swift in Sources */,
 				E0A603B02B1CC152004AE6CC /* StopWatchManager.swift in Sources */,
@@ -495,6 +510,7 @@
 				E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */,
 				E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */,
 				E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */,
+				E013B72D2B252C09007F221A /* ThemeToggle.swift in Sources */,
 				E0E6C7F12B1BC9E300146C5F /* AnswersView.swift in Sources */,
 				E08BC4A62B1687C500FAE34D /* Letters.swift in Sources */,
 				E0AD04E42B190C6700F65098 /* GameView.swift in Sources */,
