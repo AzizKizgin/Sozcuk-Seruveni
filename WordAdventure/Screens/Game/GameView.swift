@@ -93,7 +93,7 @@ struct GameView: View {
                         gameViewModel.showCloseAlert.toggle()
                     }
                     Button("Evet", role: .destructive) {
-                        dismiss()
+                        gameViewModel.screen = .result
                     }
                 }
             }
