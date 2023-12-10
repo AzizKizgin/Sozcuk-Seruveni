@@ -87,6 +87,7 @@
 		E091B02F2B122E1F00B78472 /* WordAdventureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAdventureUITests.swift; sourceTree = "<group>"; };
 		E091B0312B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAdventureUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E091B03E2B12321A00B78472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0A48D842B2541DD0065FCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0A603AF2B1CC152004AE6CC /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
 		E0AD04DC2B18EBDD00F65098 /* SwiftData+Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftData+Typealiases.swift"; sourceTree = "<group>"; };
 		E0AD04E02B19007C00F65098 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 		E091B0132B122E1E00B78472 /* WordAdventure */ = {
 			isa = PBXGroup;
 			children = (
+				E0A48D842B2541DD0065FCB8 /* Info.plist */,
 				E0A603AE2B1CC138004AE6CC /* ViewModels */,
 				E051F2272B18DA7A000462D6 /* ModelSchemas */,
 				E0F9131D2B17BB7000BDE3F0 /* Screens */,
@@ -683,10 +685,10 @@
 				DEVELOPMENT_TEAM = D2K63N33AC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordAdventure/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sözcük Serüveni";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,10 +715,10 @@
 				DEVELOPMENT_TEAM = D2K63N33AC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordAdventure/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sözcük Serüveni";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
