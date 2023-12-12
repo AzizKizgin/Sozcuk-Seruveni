@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack{
+        VStack(spacing:30){
             ThemeToggle()
+            SoundToggle()
         }
         .padding()
         .navigationTitle("Ayarlar")

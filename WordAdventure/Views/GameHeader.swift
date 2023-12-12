@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GameHeader: View {
+    @AppStorage("soundEnabled") var soundEnabled = true
     let letter: String
     let answerState: Int
     let remainingTime: String
@@ -36,6 +37,14 @@ struct GameHeader: View {
                     .font(condition ? .title: .largeTitle)
         }
         .frame(maxWidth: .infinity)
+        .overlay(alignment: .topTrailing){
+            Button(action: {soundEnabled.toggle()}, label: {
+                Image(systemName: "headphones.circle.fill")
+                    .font(.largeTitle)
+                    .padding()
+                    .foregroundStyle(soundEnabled ? .green : .red)
+            })
+        }
         .animation(.default,value: condition)
     }
 }
