@@ -27,7 +27,6 @@
 		E091B0262B122E1F00B78472 /* WordAdventureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091B0252B122E1F00B78472 /* WordAdventureTests.swift */; };
 		E091B0302B122E1F00B78472 /* WordAdventureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091B02F2B122E1F00B78472 /* WordAdventureUITests.swift */; };
 		E091B0322B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091B0312B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift */; };
-		E091B03F2B12321A00B78472 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E091B03E2B12321A00B78472 /* GoogleService-Info.plist */; };
 		E0A603B02B1CC152004AE6CC /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A603AF2B1CC152004AE6CC /* StopWatchManager.swift */; };
 		E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04DC2B18EBDD00F65098 /* SwiftData+Typealiases.swift */; };
 		E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD04E02B19007C00F65098 /* SplashView.swift */; };
@@ -44,6 +43,12 @@
 		E0E6C7F12B1BC9E300146C5F /* AnswersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */; };
 		E0E6C7F42B1BEF3C00146C5F /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F32B1BEF3C00146C5F /* GameInfo.swift */; };
 		E0E6C7F62B1C024E00146C5F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C7F52B1C024E00146C5F /* Enums.swift */; };
+		E0E70B8E2B2646C8007CD44C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E70B8D2B2646C8007CD44C /* SoundManager.swift */; };
+		E0E70B932B26478B007CD44C /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = E0E70B902B26478B007CD44C /* wrong.wav */; };
+		E0E70B952B26478B007CD44C /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = E0E70B922B26478B007CD44C /* correct.wav */; };
+		E0E70B972B2649B8007CD44C /* pass.wav in Resources */ = {isa = PBXBuildFile; fileRef = E0E70B962B2649B8007CD44C /* pass.wav */; };
+		E0E70B992B264E12007CD44C /* SoundToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E70B982B264E12007CD44C /* SoundToggle.swift */; };
+		E0EAB92B2B28AB46002155D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0EAB92A2B28AB46002155D6 /* GoogleService-Info.plist */; };
 		E0F913172B17A09B00BDE3F0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F913162B17A09A00BDE3F0 /* Question.swift */; };
 		E0F9131C2B17A3BD00BDE3F0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F9131B2B17A3BD00BDE3F0 /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
@@ -86,7 +91,6 @@
 		E091B02B2B122E1F00B78472 /* WordAdventureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordAdventureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E091B02F2B122E1F00B78472 /* WordAdventureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAdventureUITests.swift; sourceTree = "<group>"; };
 		E091B0312B122E1F00B78472 /* WordAdventureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAdventureUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E091B03E2B12321A00B78472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0A48D842B2541DD0065FCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0A603AF2B1CC152004AE6CC /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
 		E0AD04DC2B18EBDD00F65098 /* SwiftData+Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftData+Typealiases.swift"; sourceTree = "<group>"; };
@@ -104,6 +108,12 @@
 		E0E6C7F02B1BC9E300146C5F /* AnswersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersView.swift; sourceTree = "<group>"; };
 		E0E6C7F32B1BEF3C00146C5F /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		E0E6C7F52B1C024E00146C5F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		E0E70B8D2B2646C8007CD44C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		E0E70B902B26478B007CD44C /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		E0E70B922B26478B007CD44C /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		E0E70B962B2649B8007CD44C /* pass.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pass.wav; sourceTree = "<group>"; };
+		E0E70B982B264E12007CD44C /* SoundToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundToggle.swift; sourceTree = "<group>"; };
+		E0EAB92A2B28AB46002155D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0F913162B17A09A00BDE3F0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E0F9131B2B17A3BD00BDE3F0 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +151,7 @@
 			children = (
 				E013B72C2B252C09007F221A /* ThemeToggle.swift */,
 				E013B72F2B252CD1007F221A /* SettingsView.swift */,
+				E0E70B982B264E12007CD44C /* SoundToggle.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -225,6 +236,9 @@
 		E091B0132B122E1E00B78472 /* WordAdventure */ = {
 			isa = PBXGroup;
 			children = (
+				E0EAB92A2B28AB46002155D6 /* GoogleService-Info.plist */,
+				E0E70B8F2B264766007CD44C /* Sounds */,
+				E0E70B8C2B2646B0007CD44C /* Managers */,
 				E0A48D842B2541DD0065FCB8 /* Info.plist */,
 				E0A603AE2B1CC138004AE6CC /* ViewModels */,
 				E051F2272B18DA7A000462D6 /* ModelSchemas */,
@@ -234,7 +248,6 @@
 				E08BC4A42B16879600FAE34D /* Resources */,
 				E08BC49D2B167DBB00FAE34D /* Views */,
 				E08BC49A2B1676E500FAE34D /* Helpers */,
-				E091B03E2B12321A00B78472 /* GoogleService-Info.plist */,
 				E091B0142B122E1E00B78472 /* WordAdventureApp.swift */,
 				E091B0162B122E1E00B78472 /* ContentView.swift */,
 				E091B0182B122E1F00B78472 /* Assets.xcassets */,
@@ -319,6 +332,24 @@
 				E0E6C7F32B1BEF3C00146C5F /* GameInfo.swift */,
 			);
 			path = GameInfo;
+			sourceTree = "<group>";
+		};
+		E0E70B8C2B2646B0007CD44C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E0E70B8D2B2646C8007CD44C /* SoundManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E0E70B8F2B264766007CD44C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E0E70B962B2649B8007CD44C /* pass.wav */,
+				E0E70B922B26478B007CD44C /* correct.wav */,
+				E0E70B902B26478B007CD44C /* wrong.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		E0F913132B179BE100BDE3F0 /* Models */ = {
@@ -464,7 +495,10 @@
 			files = (
 				E091B01C2B122E1F00B78472 /* Preview Assets.xcassets in Resources */,
 				E091B0192B122E1F00B78472 /* Assets.xcassets in Resources */,
-				E091B03F2B12321A00B78472 /* GoogleService-Info.plist in Resources */,
+				E0E70B932B26478B007CD44C /* wrong.wav in Resources */,
+				E0E70B972B2649B8007CD44C /* pass.wav in Resources */,
+				E0E70B952B26478B007CD44C /* correct.wav in Resources */,
+				E0EAB92B2B28AB46002155D6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,9 +542,11 @@
 				E08BC49F2B167E4200FAE34D /* HomeButton.swift in Sources */,
 				E0E6C7F62B1C024E00146C5F /* Enums.swift in Sources */,
 				E0A603B02B1CC152004AE6CC /* StopWatchManager.swift in Sources */,
+				E0E70B8E2B2646C8007CD44C /* SoundManager.swift in Sources */,
 				E0485E882B1F74CF007C37DD /* String.swift in Sources */,
 				E0AD04E12B19007C00F65098 /* SplashView.swift in Sources */,
 				E0E6C7EC2B1BBAFC00146C5F /* NextGameTimer.swift in Sources */,
+				E0E70B992B264E12007CD44C /* SoundToggle.swift in Sources */,
 				E0AD04DD2B18EBDD00F65098 /* SwiftData+Typealiases.swift in Sources */,
 				E013B72D2B252C09007F221A /* ThemeToggle.swift in Sources */,
 				E0E6C7F12B1BC9E300146C5F /* AnswersView.swift in Sources */,
