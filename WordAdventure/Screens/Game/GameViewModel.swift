@@ -10,6 +10,7 @@ import Foundation
 
 class GameViewModel: ObservableObject{
     let firestore = FirebaseManager.shared.firestore
+    let soundManager = SoundManager.shared
     @Published var questions: [Question] = []
     @Published var allLetters: [String] = letters
     @Published var index: Int = 0
@@ -43,12 +44,15 @@ class GameViewModel: ObservableObject{
             }
             else if answer == "" || answer.lowercased() == "pas" {
                 questions[currentIndex].answerState = AnswerState.isPassed
+                soundManager.playSound(sound: .pass)
             } else if answer.localizedLowercased() == questions[currentIndex].word.localizedLowercased() {
                 questions[currentIndex].answerState = AnswerState.isCorrect
                 questions[currentIndex].userAnswer = answer
+                soundManager.playSound(sound: .correct)
             } else {
                 questions[currentIndex].answerState = AnswerState.isWrong
                 questions[currentIndex].userAnswer = answer
+                soundManager.playSound(sound: .wrong)
             }
         }
         answer = ""
