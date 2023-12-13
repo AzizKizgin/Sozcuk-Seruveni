@@ -18,6 +18,8 @@ Kelime Hazinesini Genişletin: Yeni kelimeler öğrenerek dil bilginizi gelişti
 
 "Sözcük Serüveni" ile kelime hazinenizi genişletin, zekanızı sınayın ve dilde ustalaşın! Hadi, kelime serüveninizi başlatın ve dilin büyülü dünyasına adım atın
 
+Uygulamaya [**_App Store_**](https://apps.apple.com/us/app/s%C3%B6zc%C3%BCk-ser%C3%BCveni/id6473081038) üzerinden ulaşabilirsiniz.
+
 ![Simulator Screenshot - 15 pro max - 2023-12-12 at 18 52 09](https://github.com/AzizKizgin/Sozcuk-Seruveni/assets/65086568/9595eed5-7970-40d2-a960-8eabf8522111)
 ![Simulator Screenshot - 15 pro max - 2023-12-12 at 18 52 15](https://github.com/AzizKizgin/Sozcuk-Seruveni/assets/65086568/4cba5f77-929b-4d4e-9eef-c4d7ae8de6d5)
 ![Simulator Screenshot - 15 pro max - 2023-12-12 at 18 52 59](https://github.com/AzizKizgin/Sozcuk-Seruveni/assets/65086568/1c52f32e-d361-4096-9a80-10d88668ee5a)
