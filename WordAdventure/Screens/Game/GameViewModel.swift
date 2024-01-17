@@ -56,7 +56,11 @@ class GameViewModel: ObservableObject{
             }
         }
         answer = ""
-        getNextQuestion()
+        if questions.first(where: {$0.userAnswer == "-"}) != nil {
+            getNextQuestion()
+        } else {
+            showResultScreen()
+        }
     }
 
     func getNextQuestion() {
